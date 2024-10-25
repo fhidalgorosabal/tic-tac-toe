@@ -1,11 +1,8 @@
 import { useState } from 'react';
+import { BoardGame } from './components/BoardGame';
 import { Square } from './components/Square';
 import { WinnerModal } from './components/WinnerModal';
-import { checkEndGame, checkWinnerFrom } from './utils/board';
-import { saveGameToStorage, resetGameStorage } from './utils/storage';
-import { TURNS } from './utils/constants';
-import confetti from 'canvas-confetti';
-import './App.css'
+import { resetGameStorage, TURNS } from './utils';
 
 export const App = () => {
   const [board, setBoard] = useState(() => {
@@ -19,24 +16,6 @@ export const App = () => {
   });
 
   const [winner, setWinner] = useState(null);
-
-  const updateBoard = (index) => {
-    if(board[index] || winner) return;
-
-    const newBoard = [...board];
-    newBoard[index] = turn;
-    setBoard(newBoard);
-    const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
-    setTurn(newTurn);
-    saveGameToStorage(newBoard, newTurn);
-    const newWinner = checkWinnerFrom(newBoard);
-    if (newWinner) {
-      confetti();
-      setWinner(newWinner);
-    } else if (checkEndGame(newBoard)) {
-      setWinner(false);
-    }
-  };
 
   const resetGame = () => {
     setBoard(Array(9).fill(null));
@@ -52,22 +31,25 @@ export const App = () => {
       <button onClick={ resetGame }>Nuevo juego</button>
 
       <section className='game'>
-        {          
-          board.map((square, index)=>(
-            <Square 
-              key={ index } 
-              index={ index }
-              updateBoard={ updateBoard }
-            >{square}</Square>
-          ))
-        }
+        <BoardGame 
+          board={ board } 
+          turn={ turn } 
+          winner={ winner } 
+          setBoard={ setBoard } 
+          setTurn={ setTurn } 
+          setWinner={ setWinner }
+        ></BoardGame>
       </section>
+
       <section className='turn'>
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
 
-      <WinnerModal winner={ winner } resetGame={ resetGame }></WinnerModal>
+      <WinnerModal 
+        winner={ winner } 
+        resetGame={ resetGame }
+      ></WinnerModal>
 
     </main>
   )

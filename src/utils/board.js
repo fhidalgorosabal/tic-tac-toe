@@ -1,6 +1,26 @@
-import { WINNER_COMBOS } from "./constants";7
+import { TURNS, WINNER_COMBOS } from "./constants";
+import { saveGameToStorage } from "./storage";
+import confetti from "canvas-confetti";
 
-export const checkWinnerFrom = (boardToCheck) => {
+export const updateBoard = (board, turn, winner, index, setBoard, setTurn, setWinner) => {
+  if(board[index] || winner) return;
+
+  const newBoard = [...board];
+  newBoard[index] = turn;
+  setBoard(newBoard);
+  const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
+  setTurn(newTurn);
+  saveGameToStorage(newBoard, newTurn);
+  const newWinner = checkWinnerFrom(newBoard);
+  if (newWinner) {
+    confetti();
+    setWinner(newWinner);
+  } else if (checkEndGame(newBoard)) {
+    setWinner(false);
+  }
+};
+
+const checkWinnerFrom = (boardToCheck) => {
     for(const combo of WINNER_COMBOS ) {
       const [a, b, c] = combo;
       if (
@@ -12,4 +32,4 @@ export const checkWinnerFrom = (boardToCheck) => {
     return null;
 };
 
-export const checkEndGame = (newBoard) => newBoard.every((square) => square !== null);  
+const checkEndGame = (newBoard) => newBoard.every((square) => square !== null);  

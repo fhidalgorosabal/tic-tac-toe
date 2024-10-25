@@ -12,9 +12,8 @@ export const WinnerModal = ({ winner, resetGame }) => {
   
           { winner &&  <div className='win'><Square>{ winner }</Square></div>}
   
-          <div>
-            <button onClick={ resetGame }>Empesar de nuevo</button>
-          </div>
+          <button onClick={ resetGame }>Empesar de nuevo</button>
+          
         </div>
       </section>
     );
