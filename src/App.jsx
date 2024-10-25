@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import confetti from 'canvas-confetti';
 import './App.css'
 
 const TURNS = {
@@ -56,6 +57,7 @@ function App() {
     setTurn(newTurn);
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
+      confetti();
       setWinner(newWinner);
     } else if (checkEndGame(newBoard)) {
       setWinner(false);
