@@ -4,7 +4,7 @@ import { Square } from './components/Square';
 import { WinnerModal } from './components/WinnerModal';
 import { resetGameStorage, TURNS } from './utils';
 
-export const App = () => {
+export const TicTacToe = () => {
   const [board, setBoard] = useState(() => {
     const boardFromStorage = window.localStorage.getItem('board');
     return boardFromStorage ? JSON.parse(boardFromStorage) : Array(9).fill(null);
@@ -26,9 +26,10 @@ export const App = () => {
   
   return (
     <main className='board'>
-      <h1>Tic tac toe</h1>
-
-      <button onClick={ resetGame }>Nuevo juego</button>
+      <header>
+        <h1>Tic Tac Toe</h1>
+        <button onClick={resetGame}>Nuevo juego</button>
+      </header>
 
       <section className='game'>
         <BoardGame 
