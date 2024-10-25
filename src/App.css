@@ -37,12 +37,11 @@ body {
 
 .board h1 {
   color: #eee;
-  margin-bottom: 20px;
 }
 
 .board button {
   padding: 8px 12px;
-  margin: 25px;
+  margin: 18px;
   background: transparent;
   border: 2px solid #eee;
   color: #eee;
@@ -73,17 +72,22 @@ body {
   border-radius: 10px;
 }
 
-.turn .square,
-.winner .square {
+.turn .square {
   width: 70px;
   height: 70px;
   pointer-events: none;
   border-color: transparent;
 }
 
+.turn .square {
+  margin: 0 20px;
+}
+
 .square.is-selected {
+  width: 90px;
+  height: 90px;
   color: #fff;
-  background: #09f;
+  background: rgb(122, 188, 229);
 }
 
 .winner {
