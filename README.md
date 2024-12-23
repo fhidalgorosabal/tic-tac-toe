@@ -1,8 +1,26 @@
-# React + Vite
+# Tic Tac Toe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Tic Tac Toe** es una aplicación interactiva desarrollada en **React** como parte del curso _"Aprendiendo React"_ de **Midudev**. Esta aplicación recrea el clásico juego del gato (tres en raya) con una interfaz sencilla pero ideal para practicar conceptos fundamentales de React.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías utilizadas
+
+- **React**
+- **Vite**
+- **Canvas Confetti**
+- **ESLint**
+
+---
+
+## Autor
+
+Desarrollado por: Fernando Hidalgo Rosabal.
+
+---
+
+## Licencia
+
+Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
+
+---
