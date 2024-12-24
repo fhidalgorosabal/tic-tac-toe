@@ -13,6 +13,20 @@
 
 ---
 
+## Instalación y ejecución
+
+1. Clona este repositorio en tu máquina local `git clone https://github.com/fhidalgorosabal/tic-tac-toe.git`.
+2. Accede a la carpeta del proyecto `cd calculator`.
+3. Ejecuta `npm install` para instalar los paquetes de node.
+4. Para iniciar la aplicación `npm run dev` y accede en el navedador a `http://localhost:5173/`.
+   
+---   
+
+## Aplicación
+![Tic tac toe](public/screenshot/game.png)
+
+---
+
 ## Autor
 
 Desarrollado por: Fernando Hidalgo Rosabal.
