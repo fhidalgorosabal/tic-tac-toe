@@ -24,7 +24,7 @@
 
 ## Aplicación
 
-Puedes acceder a la aplicación desplegada aquí: [Tic Tac Toe](https://tic-tac-toe-phi-ruddy.vercel.app/)
+Puedes acceder a la aplicación desplegada aquí: [Tic Tac Toe](https://tic-tac-toe-fhr.vercel.app/)
 
 ![Tic tac toe](public/screenshot/game.png)
 
